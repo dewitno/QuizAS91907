@@ -10,16 +10,21 @@ import java.awt.Color;
  */
 public class QuizDriver
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    // instance variables 
+    private String question;
+    private String corrAnswer;
+    private String incorrAnswer1;
+    private String incorrAnswer2;
+    private String incorrAnswer3;
+    
+    
     /**
      * Constructor for objects of class QuizDriver
      */
     public QuizDriver()
     {
         // initialise instance variables
-        x = 0;
+        
     }
 
     /**
@@ -31,6 +36,6 @@ public class QuizDriver
     public int sampleMethod(int y)
     {
         // put your code here
-        return x + y;
+        return y;
     }
 }
