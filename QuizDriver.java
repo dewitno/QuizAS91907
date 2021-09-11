@@ -2,6 +2,7 @@ import ecs100.*;
 import java.util.*;
 import java.io.*;
 import java.awt.Color;
+import java.util.HashMap;
 /**
  * Write a description of class QuizDriver here.
  *
@@ -11,11 +12,7 @@ import java.awt.Color;
 public class QuizDriver
 {
     // instance variables 
-    private String question;
-    private String corrAnswer;
-    private String incorrAnswer1;
-    private String incorrAnswer2;
-    private String incorrAnswer3;
+    private HashMap<Integer, QuizSupport> quiz;
     
     
     /**

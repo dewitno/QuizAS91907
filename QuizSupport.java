@@ -10,27 +10,59 @@ import java.awt.Color;
  */
 public class QuizSupport
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // instance variables
+    private String question;
+    private String corAns;
+    private String incorAns1;
+    private String incorAns2;
+    private String incorAns3;
 
     /**
      * Constructor for objects of class QuizSupport
      */
-    public QuizSupport()
+    public QuizSupport(String q, String cAns, String icAns1, String icAns2, String icAns3)
     {
         // initialise instance variables
-        x = 0;
+        this.question = q;
+        this.corAns = cAns;
+        this.incorAns1 = icAns1;
+        this.incorAns2 = icAns1;
+        this.incorAns3 = icAns3;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * getter method to get question
      */
-    public int sampleMethod(int y)
+    public String getQuest()
     {
-        // put your code here
-        return x + y;
+        return this.question;
+    }
+    
+    /**
+     * getter method to get correct answer
+     */
+    public String getCorAns() {
+        return this.corAns;
+    }
+    
+    /**
+     * getter method to get incorrect answer 1
+     */
+    public String getIncorAns1() {
+        return this.incorAns1;
+    }
+    
+    /**
+     * getter method to get incorrect answer 2
+     */
+    public String getIncorAns2() {
+        return this.incorAns2;
+    }
+    
+    /**
+     * getter method to get incorrect answer 3
+     */
+    public String getIncorAns3() {
+        return this.incorAns3;
     }
 }

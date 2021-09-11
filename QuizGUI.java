@@ -14,7 +14,7 @@ import java.awt.Color;
 /** <description of class QuizGUI>
  */
 public class QuizGUI{
-
+    private QuizDriver quiz;
     /**      */
     public QuizGUI(){
     UI.initialise();
