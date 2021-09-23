@@ -13,6 +13,14 @@ public class QuizDriver
 {
     // instance variables 
     private HashMap<Integer, QuizSupport> quiz;
+    private String question;
+    private String corAns;
+    private String[] questions;
+    private String[] corAnswers;
+    private String[] incorAnswers;
+    private int score;
+    private boolean correct;
+    
     
     
     /**
@@ -24,15 +32,5 @@ public class QuizDriver
         
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return y;
-    }
+    
 }
