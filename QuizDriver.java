@@ -30,6 +30,13 @@ public class QuizDriver
     {
         // initialise instance variables
         
+        // questions and answers
+        QuizSupport q1 = new QuizSupport("What worldwide used food became orange as a tribute to William of Orange, who led the struggle for Dutch independence?", 
+        "Carrots", "Pumpkins", "Tangerines", "Capsicums");
+        QuizSupport q2 = new QuizSupport("Belgium, Luxembourg and the Netherlands used to be part of the United Kingdom of the Netherlands before splitting off during the Belgium Revolution. When did that revolution happen?", 
+        "1830-1839", "1800-1830", "1780-1650", "1600-2000");
+        QuizSupport q3 = new QuizSupport("How much of the land in the Netherlands is below sea level?", "A third", "A half", "5/7ths", "All of it");
+        
     }
 
     
