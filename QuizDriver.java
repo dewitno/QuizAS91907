@@ -14,6 +14,7 @@ public class QuizDriver
     // instance variables 
     private HashMap<Integer, QuizSupport> quiz;
     private String question;
+    private String answer;
     private String corAns;
     private String[] questions;
     private String[] corAnswers;
@@ -43,7 +44,33 @@ public class QuizDriver
         QuizSupport q7 = new QuizSupport("How long is the longest tunnel in the Netherlands?","6600m","3000m","10000m","5m");
         QuizSupport q8 = new QuizSupport("What are the known symbols of Dutchness?","","","","");
         
+        this.question = "";
+        
+        quiz.put(1, q1);
+        quiz.put(2, q2);
+        quiz.put(3, q3);
+        quiz.put(4, q4);
+        quiz.put(5, q5);
+        quiz.put(6, q6);
+        quiz.put(7, q7);
+        quiz.put(8, q8);
     }
 
+    /**
+     * 
+     */
+    public void userAnswer(String answers) {
+        
+    }
+    
+    /**
+     * method to check answer
+     */
+    public void checkAnswer() {
+        
+    }
+    
+    
+    
     
 }
