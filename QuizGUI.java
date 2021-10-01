@@ -15,17 +15,18 @@ import java.awt.Color;
  */
 public class QuizGUI{
     private QuizDriver quiz;
-    /**      */
+    /**
+     * 
+     */
     public QuizGUI(){
-    UI.initialise();
-    UI.addButton("Quit", UI::quit);
+        UI.initialise();
+        UI.addButton("Quit", UI::quit);
     }
-
 
 
     public static void main(String[] args){
         QuizGUI obj = new QuizGUI();
     }
-
+    
 }
 

@@ -67,7 +67,12 @@ public class QuizDriver
      * method to check answer
      */
     public void checkAnswer() {
-        
+        if (this.answer == this.corAns) {
+            this.correct = true;
+        }
+        else {
+            this.correct = false;
+        }
     }
     
     
