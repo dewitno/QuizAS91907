@@ -14,16 +14,16 @@ public class QuizDriver
     // instance variables 
     private HashMap<Integer, QuizSupport> quiz;
     private String question;
-    private String answer;
     private String corAns;
     private String[] questions;
     private String[] corAnswers;
     private String[] incorAnswers;
-    private int score;
+    private int[] qNumbers = {1, 2, 3, 4, 5, 6, 7, 8};
     private boolean correct;
     
-    
-    
+    // constant variables
+    private int INCARRAYMAX = 24;
+    private int ARRAYMAX = 8;
     /**
      * Constructor for objects of class QuizDriver
      */
@@ -55,7 +55,42 @@ public class QuizDriver
         quiz.put(7, q7);
         quiz.put(8, q8);
     }
-
+    
+    /**
+     * method to setup quiz arrays
+     */
+    public void setArrays() {
+        incorAnswers = new String[INCARRAYMAX];
+        corAnswers = new String[ARRAYMAX];
+        questions = new String[ARRAYMAX];
+        
+        for (int i : quiz.keySet()) {
+            
+        }
+        
+    }
+    
+    /**
+     * method to send questions array to GUI
+     */
+    public String[] getQuestions() {
+        return questions;
+    }
+    
+    /**
+     * method to send correct answers array to GUI
+     */
+    public String[] getCorAns() {
+        return corAnswers;
+    }
+    
+    /**
+     * method to send incorrect answers array to GUI
+     */
+    public String[] getIncAns() {
+        return incorAnswers;
+    }
+    
     /**
      * 
      */
@@ -66,8 +101,8 @@ public class QuizDriver
     /**
      * method to check answer
      */
-    public void checkAnswer() {
-        if (this.answer == this.corAns) {
+    public void checkAnswer(String answer) {
+        if (answer == this.corAns) {
             this.correct = true;
         }
         else {
@@ -75,7 +110,12 @@ public class QuizDriver
         }
     }
     
-    
+    /**
+     * return answer check
+     */
+    public boolean getCheck() {
+        return correct;
+    }
     
     
 }
