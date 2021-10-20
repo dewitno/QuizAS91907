@@ -3,6 +3,7 @@ import java.util.*;
 import java.io.*;
 import java.awt.Color;
 import java.util.HashMap;
+import java.util.ArrayList;
 /**
  * Write a description of class QuizDriver here.
  *
@@ -18,8 +19,10 @@ public class QuizDriver
     private String[] questions;
     private String[] corAnswers;
     private String[] incorAnswers;
-    private int[] qNumbers = {1, 2, 3, 4, 5, 6, 7, 8};
+    private ArrayList<Integer> qNumbers = new ArrayList<Integer>();
     private boolean correct;
+    private int num;
+    private int currPost;
     
     // constant variables
     private int INCARRAYMAX = 24;
@@ -54,6 +57,12 @@ public class QuizDriver
         quiz.put(6, q6);
         quiz.put(7, q7);
         quiz.put(8, q8);
+        
+        for (int idx = 0; idx < ARRAYMAX; idx++) {
+            qNumbers.add(idx + 1);
+        }
+        
+        setArrays();
     }
     
     /**
@@ -63,11 +72,22 @@ public class QuizDriver
         incorAnswers = new String[INCARRAYMAX];
         corAnswers = new String[ARRAYMAX];
         questions = new String[ARRAYMAX];
-        
-        for (int i : quiz.keySet()) {
+        currPost = 0;
+        System.out.println(incorAnswers.length);
+        do {
             
-        }
-        
+            num = (int) (Math.random() * qNumbers.size());
+            System.out.println(num);
+            questions[this.currPost] = quiz.get(this.num).getQuest();
+            corAnswers[this.currPost] = quiz.get(this.num).getCorAns();
+            for (int i : quiz.keySet()) {
+                incorAnswers[this.currPost * 3] = quiz.get(this.num).getIncorAns1();
+                incorAnswers[this.currPost * 3 + 1] = quiz.get(this.num).getIncorAns2();
+                incorAnswers[this.currPost * 3 + 2] = quiz.get(this.num).getIncorAns3();
+            }
+            qNumbers.remove(num);
+            this.currPost++;
+        } while(qNumbers.size() != 0); 
     }
     
     /**
