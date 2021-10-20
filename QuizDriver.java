@@ -19,7 +19,7 @@ public class QuizDriver
     private String[] questions;
     private String[] corAnswers;
     private String[] incorAnswers;
-    private ArrayList<Integer> qNumbers = new ArrayList<Integer>();
+    ArrayList<Integer> qNumbers = new ArrayList<Integer>();
     private boolean correct;
     private int num;
     private int currPost;
@@ -58,10 +58,7 @@ public class QuizDriver
         quiz.put(7, q7);
         quiz.put(8, q8);
         
-        for (int idx = 0; idx < ARRAYMAX; idx++) {
-            qNumbers.add(idx + 1);
-        }
-        
+
         setArrays();
     }
     
@@ -73,21 +70,30 @@ public class QuizDriver
         corAnswers = new String[ARRAYMAX];
         questions = new String[ARRAYMAX];
         currPost = 0;
-        System.out.println(incorAnswers.length);
+
         do {
-            
-            num = (int) (Math.random() * qNumbers.size());
-            System.out.println(num);
-            questions[this.currPost] = quiz.get(this.num).getQuest();
-            corAnswers[this.currPost] = quiz.get(this.num).getCorAns();
-            for (int i : quiz.keySet()) {
-                incorAnswers[this.currPost * 3] = quiz.get(this.num).getIncorAns1();
-                incorAnswers[this.currPost * 3 + 1] = quiz.get(this.num).getIncorAns2();
-                incorAnswers[this.currPost * 3 + 2] = quiz.get(this.num).getIncorAns3();
+            num = (int) (Math.random() * ARRAYMAX);
+            if (qNumbers.size() == 0) {
+                qNumbers.add(num);
+            } 
+            else{
+                while (qNumbers.contains(num) == true) {
+                    num = (int) (Math.random() * ARRAYMAX);
+                }
+                qNumbers.add(num);
             }
-            qNumbers.remove(num);
+        } while(qNumbers.size() != ARRAYMAX);
+        
+        for (int post = 1; post <= qNumbers.size(); post++) { 
+            questions[this.currPost] = quiz.get(post).getQuest();
+            corAnswers[this.currPost] = quiz.get(post).getCorAns();
+            for (int i : quiz.keySet()) {
+                incorAnswers[this.currPost * 3] = quiz.get(post).getIncorAns1();
+                incorAnswers[this.currPost * 3 + 1] = quiz.get(post).getIncorAns2();
+                incorAnswers[this.currPost * 3 + 2] = quiz.get(post).getIncorAns3();
+            }
             this.currPost++;
-        } while(qNumbers.size() != 0); 
+        }
     }
     
     /**

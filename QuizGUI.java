@@ -47,7 +47,6 @@ public class QuizGUI{
         UI.addButton("Quit", UI::quit);
     }
 
-
     public static void main(String[] args){
         QuizGUI obj = new QuizGUI();
     }
@@ -107,14 +106,17 @@ public class QuizGUI{
             }
         }
         check = quiz.getCheck();
-        erase();
+        //erase();
     }
     
     /**
      * erase method
      */
     public void erase() {
+        UI.sleep(500);
         UI.clearGraphics();
     }
+    
+    
 }
 
