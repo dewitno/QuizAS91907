@@ -44,6 +44,10 @@ public class QuizGUI{
     public QuizGUI(){
         quiz = new QuizDriver();
         UI.initialise();
+        // displays translations for certain words
+        UI.println("Elfstedentocht = Eleven Cities Tour");
+        UI.println("Nieuwekerk aan den Ijssel = New Church on the IJssel (place in the Netherlands)");
+        // intitialises buttons and mouse
         UI.setMouseListener(this::doMouse);
         UI.addButton("Begin Quiz", this::beginQuiz);
         UI.addButton("Quit", UI::quit);
@@ -100,7 +104,10 @@ public class QuizGUI{
     public void doMouse(String action, double x, double y) {
         if (action.equals("clicked")) {
             // if statements to check user answer
-            if ((x >= this.ILOCX) && (x <= this.WIDTH + this.ILOCX) && (y >= this.ILOCY) && (y <= this.HEIGHT + this.ILOCY)) {
+            if (this.questID >= MAXSCORE) {
+                clickLoc = "outside";
+            }
+            else if ((x >= this.ILOCX) && (x <= this.WIDTH + this.ILOCX) && (y >= this.ILOCY) && (y <= this.HEIGHT + this.ILOCY)) {
                 userAns = ansBox1;
                 quiz.checkAnswer(userAns, questID);
                 clickLoc = "inside";
