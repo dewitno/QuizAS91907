@@ -9,7 +9,7 @@ import ecs100.*;
 import java.util.*;
 import java.io.*;
 import java.awt.Color;
-
+import java.util.ArrayList;
 
 /** <description of class QuizGUI>
  */
@@ -26,6 +26,7 @@ public class QuizGUI{
     private int questID;
     private boolean check;
     private String clickLoc = "outside";
+    ArrayList<String> failQuest = new ArrayList<String>();
     
     // constant variables
     static final int MAXSCORE = 8;
@@ -136,6 +137,9 @@ public class QuizGUI{
             check = quiz.getCheck();
             if (check == true) {
                 this.score++;
+            }
+            else if(check == false) {
+                failQuest.add(question);
             }
             this.questID++;
             check = false;
