@@ -1,3 +1,4 @@
+
 import ecs100.*;
 import java.util.*;
 import java.io.*;
@@ -5,10 +6,10 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.ArrayList;
 /**
- * Write a description of class QuizDriver here.
+ * QuizDriver class
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author dewitno
+ * @version V.5
  */
 public class QuizDriver
 {
@@ -26,9 +27,9 @@ public class QuizDriver
     private int currPost;
     
     // constant variables
-    private int INCARRAYMAX = 24;
-    private int ARRAYMAX = 8;
-    private int CURRQUESTANSMAX = 4;
+    static final int INCARRAYMAX = 24;
+    static final int ARRAYMAX = 8;
+    static final int CURRQUESTANSMAX = 4;
     /**
      * Constructor for objects of class QuizDriver
      */
@@ -38,17 +39,29 @@ public class QuizDriver
         quiz = new HashMap<Integer, QuizSupport>();
         // questions and answers
         QuizSupport q1 = new QuizSupport("What worldwide used food became orange as a tribute to William of Orange, who led the struggle for Dutch independence?", 
-        "Carrots", "Pumpkins", "Tangerines", "Capsicums");
+            "Carrots", "Pumpkins", 
+            "Tangerines", "Capsicums");
         QuizSupport q2 = new QuizSupport("Belgium, Luxembourg and the Netherlands used to be part of the United Kingdom of the Netherlands before splitting up during the Belgium Revolution. When did that revolution happen?", 
-        "1830-1839", "1800-1830", "1780-1650", "1600-2000");
-        QuizSupport q3 = new QuizSupport("How much of the land in the Netherlands is below sea level?", "A third", "A half", "5/7ths", "All of it");
-        QuizSupport q4 = new QuizSupport("What is the length of the Elfstedentocht?","200km","321km","16km","100km");
-        QuizSupport q5 = new QuizSupport("What is the size of the Netherlands?","41543km²","50000km²","25938km²","1km²");
+            "1830-1839", "1800-1830", 
+            "1780-1650", "1600-2000");
+        QuizSupport q3 = new QuizSupport("How much of the land in the Netherlands is below sea level?",
+            "A third", "A half", 
+            "5/7ths", "All of it");
+        QuizSupport q4 = new QuizSupport("What is the length of the Elfstedentocht?",
+            "200km", "321km", 
+            "16km", "100km");
+        QuizSupport q5 = new QuizSupport("What is the size of the Netherlands?",
+            "41543km²", "50000km²", 
+            "25938km²", "1km²");
         QuizSupport q6 = new QuizSupport("The lowest point in the Netherlands is located at Nieuwekerk aan den Ijssel. How many meters below sea level is it?",
-        "6.76m","10.09m","3m","0.0001m");
-        QuizSupport q7 = new QuizSupport("How long is the longest tunnel in the Netherlands?","6600m","3000m","10000m","5m");
-        QuizSupport q8 = new QuizSupport("What are the known symbols of Dutchness?","wooden shoes, tulips, windmills",
-        "lace caps, pyramids, wafels","tulips, stones, tundra","dams, mountains, bikes");
+            "6.76m", "10.09m", 
+            "3m", "0.0001m");
+        QuizSupport q7 = new QuizSupport("How long is the longest tunnel in the Netherlands?",
+            "6600m", "3000m", 
+            "10000m", "5m");
+        QuizSupport q8 = new QuizSupport("What are the known symbols of Dutchness?",
+            "wooden shoes, tulips, windmills", "lace caps, pyramids, wafels", 
+            "tulips, stones, tundra", "dams, mountains, bikes");
         
         quiz.put(1, q1);
         quiz.put(2, q2);
@@ -77,7 +90,7 @@ public class QuizDriver
             if (qNumbers.size() == 0) {
                 qNumbers.add(num);
             } 
-            else{
+            else {
                 while (qNumbers.contains(num) == true) {
                     num = (int) (Math.random() * ARRAYMAX);
                 }
@@ -86,7 +99,7 @@ public class QuizDriver
         } while(qNumbers.size() != ARRAYMAX);
         
         for (int post = 1; post <= qNumbers.size(); post++) {
-            this.num = qNumbers.get(this.currPost)+1;
+            this.num = qNumbers.get(this.currPost) + 1;
             questions[this.currPost] = quiz.get(num).getQuest();
             corAnswers[this.currPost] = quiz.get(num).getCorAns();
             for (int i : quiz.keySet()) {
@@ -101,6 +114,7 @@ public class QuizDriver
     /**
      * method that scrambles current question's
      * answers locations
+     * @param questID from GUI
      */
     public void scrambleAns(int questID) {
         int id = 1;
@@ -131,24 +145,30 @@ public class QuizDriver
     
     /**
      * method to send requried question to GUI
+     * @return questions[id]
+     * @param id from GUI
      */
-    public String getQuest(int ID) {
-        return questions[ID];
+    public String getQuest(int id) {
+        return questions[id];
     }
     
     /**
      * method to send requried answers to GUI
+     * @return ans
+     * @param id from GUI
      */
-    public String getAns(int ID) {
-        String ans = currQuestAnswers[ID];
+    public String getAns(int id) {
+        String ans = currQuestAnswers[id];
         return ans;
     }
     
     /**
      * method to check answer
+     * @param answer from GUI
+     * @param id from GUI
      */
-    public void checkAnswer(String answer, int ID) {
-        if (answer == this.corAnswers[ID]) {
+    public void checkAnswer(String answer, int id) {
+        if (answer == this.corAnswers[id]) {
             this.correct = true;
         }
         else {
@@ -158,6 +178,7 @@ public class QuizDriver
     
     /**
      * return answer check
+     * @return correct
      */
     public boolean getCheck() {
         return correct;

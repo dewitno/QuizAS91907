@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=QuizGUI
-comment0.text=\ <description\ of\ class\ QuizGUI>\r\n
+comment0.text=\ \r\n\ QuizGUI\ class\r\n\ \r\n\ @author\ dewitno\r\n\ @version\ V.5\r\n
 comment1.params=
 comment1.target=QuizGUI()
 comment1.text=\r\n\ constructor\ of\ QuizGUI\r\n
@@ -12,8 +12,8 @@ comment3.target=void\ display()
 comment3.text=\r\n\ displaies\ boxes,\ question\ and\ possible\ answers\r\n
 comment4.params=action\ x\ y
 comment4.target=void\ doMouse(java.lang.String,\ double,\ double)
-comment4.text=\r\n\ mouse\ method\r\n
+comment4.text=\r\n\ mouse\ method\r\n\ @param\ action\ from\ mouse\ click\r\n\ @param\ x\ coord\ of\ mouse\r\n\ @param\ y\ coord\ of\ mouse\r\n
 comment5.params=
 comment5.target=void\ erase()
-comment5.text=\r\n\ erase\ method\r\n
+comment5.text=\r\n\ erase\ method\ to\ clear\ current\ question\r\n
 numComments=6
