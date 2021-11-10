@@ -80,24 +80,30 @@ public class QuizDriver
      * method to setup quiz arrays
      */
     public void setArrays() {
+        // set array lengths
         incorAnswers = new String[INCARRAYMAX];
         corAnswers = new String[ARRAYMAX];
         questions = new String[ARRAYMAX];
         currPost = 0;
-
+        // do list that loops till qNumbers arraylist
+        // size is equal to ARRAYMAX variable
         do {
+            // gets a random number
             num = (int) (Math.random() * ARRAYMAX);
+            // if statement to check whether arraylist is empty or not
             if (qNumbers.size() == 0) {
                 qNumbers.add(num);
             } 
             else {
+                // while loop that loops if number is already in arraylist
                 while (qNumbers.contains(num) == true) {
                     num = (int) (Math.random() * ARRAYMAX);
                 }
                 qNumbers.add(num);
             }
         } while(qNumbers.size() != ARRAYMAX);
-        
+        // for loop that loops till all questions and answers
+        // have been added to relevant arrays
         for (int post = 1; post <= qNumbers.size(); post++) {
             this.num = qNumbers.get(this.currPost) + 1;
             questions[this.currPost] = quiz.get(num).getQuest();
@@ -117,12 +123,16 @@ public class QuizDriver
      * @param questID from GUI
      */
     public void scrambleAns(int questID) {
+        // sets relavent variables and array sizes
         int id = 1;
         currQuestAnswers = new String[CURRQUESTANSMAX];
         num = (int) (Math.random() * CURRQUESTANSMAX);
         currQuestAnswers[num] = corAnswers[questID];
+        // do statement that loops till id is equal or more than 4
         do {
+            // gets random number
             num = (int) (Math.random() * CURRQUESTANSMAX);
+            // if statement to add answers to array in random locations
             if (currQuestAnswers[num] != null) {
                 num = (int) (Math.random() * CURRQUESTANSMAX);
             }
